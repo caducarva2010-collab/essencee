@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Essence — Sites profissionais para o seu negócio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#F4F7FC;--navy2:#E8EEF8;--blue:#2563EB;--white:#FFFFFF;--mist:#E2E8F0;--ink:#1E293B;--mut:#64748B;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--navy);color:var(--ink);font-family:Figtree,system-ui,sans-serif;line-height:1.6}
+h1,h2,h3{font-family:'Bricolage Grotesque',Figtree,sans-serif;line-height:1.08;margin:0;color:#0F172A}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(244,247,252,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,.06)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.4rem;text-decoration:none;letter-spacing:-.02em;color:#0F172A}
+.logo i{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--blue);margin-left:3px}
+nav a{margin-left:24px;text-decoration:none;font-size:.95rem;color:#475569;font-weight:500}
+nav a:hover{color:var(--blue)}
+.btn{display:inline-block;border:0;border-radius:999px;padding:13px 26px;font:600 1rem Figtree,sans-serif;cursor:pointer;text-decoration:none;background:var(--blue);color:#fff;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.blue{background:var(--blue);color:#fff}
+.btn.ghost{background:transparent;color:#0F172A;border:1.5px solid #CBD5E1}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.hero{padding:84px 0 70px;background:#FFFFFF;border-bottom:1px solid #E2E8F0}
+.hero h1{font-size:clamp(2.6rem,7vw,5.2rem);font-weight:800;letter-spacing:-.035em;max-width:14ch;color:#0F172A}
+.hero p{font-size:1.2rem;max-width:52ch;color:#475569;margin:24px 0 32px}
+.hero .row{display:flex;gap:14px;flex-wrap:wrap}
+.stats{display:flex;gap:40px;flex-wrap:wrap;margin-top:56px;padding-top:28px;border-top:1px solid #E2E8F0}
+.stats b{display:block;font:800 2rem 'Bricolage Grotesque',sans-serif;color:#0F172A}
+.stats span{color:#64748B;font-size:.92rem}
+.light{background:var(--white);color:var(--ink)}
+.light .mut{color:var(--mut)}
+section{padding:84px 0}
+.sec-h{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800;letter-spacing:-.03em;max-width:20ch}
+.sub{max-width:56ch;margin:14px 0 0;color:#475569}
+.light .sub{color:var(--mut)}
+
+/* Preços */
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:40px}
+.price-card{background:var(--white);border:1px solid #E2E8F0;border-radius:20px;padding:32px;display:flex;flex-direction:column;box-shadow:0 4px 6px -1px rgba(0,0,0,.02);position:relative}
+.price-card.featured{border:2px solid var(--blue);box-shadow:0 10px 25px rgba(37,99,235,.1)}
+.price-card h3{font-size:1.35rem;margin-bottom:8px;color:#0F172A}
+.price-card .price{font-family:'Bricolage Grotesque',sans-serif;font-size:2.5rem;font-weight:800;color:var(--blue);margin:16px 0}
+.price-card .price span{font-size:1rem;color:var(--mut);font-weight:500}
+.price-card ul{list-style:none;padding:0;margin:20px 0 30px;flex:1}
+.price-card ul li{padding:8px 0;color:#475569;border-bottom:1px solid #F1F5F9;font-size:.95rem}
+
+/* demo */
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin:34px 0 14px;align-items:center}
+.tab{border:1.5px solid #CBD5E1;background:#fff;color:#334155;border-radius:999px;padding:9px 20px;font:500 .95rem Figtree,sans-serif;cursor:pointer}
+.tab[aria-selected=true]{background:var(--blue);color:#fff;border-color:var(--blue)}
+.dev{margin-left:auto;display:flex;gap:6px}
+.dev button{background:#E2E8F0;color:#334155;border:0;border-radius:8px;padding:8px 14px;cursor:pointer;font:500 .85rem Figtree,sans-serif}
+.dev button[aria-pressed=true]{background:var(--blue);color:#fff}
+.stage{background:#E2E8F0;border-radius:20px;padding:22px;display:flex;justify-content:center;overflow:hidden}
+.frame{width:100%;max-width:100%;background:#fff;color:#1a1a1a;border-radius:12px;overflow:hidden;transition:width .45s ease;box-shadow:0 20px 40px rgba(0,0,0,.1)}
+.frame.mobile{width:380px}
+.bar{background:#F1F5F9;padding:10px 14px;display:flex;align-items:center;gap:7px}
+.bar i{width:10px;height:10px;border-radius:50%;background:#CBD5E1}
+.url{margin-left:10px;background:#fff;border-radius:6px;padding:3px 12px;font-size:.78rem;color:#64748B;flex:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;border:1px solid #E2E8F0}
+.s{--a:#000;min-height:430px}
+.s-top{display:flex;justify-content:space-between;align-items:center;padding:14px 22px;border-bottom:1px solid #E2E8F0;gap:10px}
+.s-top b{font:800 1.15rem 'Bricolage Grotesque',sans-serif;color:var(--a)}
+.cartbtn{background:var(--a);color:#fff;border:0;border-radius:999px;padding:8px 16px;font:600 .88rem Figtree,sans-serif;cursor:pointer}
+.s-hero{padding:38px 22px;background:var(--bg);}
+.s-hero h3{font-size:clamp(1.6rem,4vw,2.5rem);color:var(--a);max-width:16ch}
+.s-hero p{margin:10px 0 0;color:#475569;max-width:40ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;padding:22px}
+.p{border:1px solid #E2E8F0;border-radius:12px;overflow:hidden;background:#fff}
+.p .img{height:110px;background-size:cover;background-position:center;background-color:#F1F5F9;}
+.p div.t{padding:10px 12px}
+.p h4{margin:0;font-size:.95rem;color:#0F172A}
+.p small{color:#64748B}
+.p .add{margin-top:8px;width:100%;border:1.5px solid var(--a);background:#fff;color:var(--a);border-radius:8px;padding:6px;font:600 .85rem Figtree,sans-serif;cursor:pointer;transition:.15s}
+.p .add:hover,.p .add.ok{background:var(--a);color:#fff}
+.drawer{position:relative}
+.cart{margin:0 22px 22px;border:1.5px dashed var(--a);border-radius:12px;padding:14px 16px;font-size:.92rem;display:none;background:#FAFAFA}
+.cart.on{display:block}
+.cart li{display:flex;justify-content:space-between;list-style:none}
+.cart ul{margin:0 0 8px;padding:0}
+.cart .tot{display:flex;justify-content:space-between;font-weight:700;border-top:1px solid #E2E8F0;padding-top:8px}
+.cart button{margin-top:10px;background:var(--a);color:#fff;border:0;border-radius:8px;padding:9px 16px;font:600 .88rem Figtree,sans-serif;cursor:pointer}
+.note{margin-top:14px;color:#64748B;font-size:.9rem}
+/* services */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:40px}
+.card{background:var(--white);border:1px solid #E2E8F0;border-radius:16px;padding:26px;box-shadow:0 4px 6px -1px rgba(0,0,0,.02)}
+.card h3{font-size:1.25rem;margin-bottom:8px;color:#0F172A}
+.card p{margin:0;color:var(--mut)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;margin-top:40px;counter-reset:s}
+.steps div{counter-increment:s;border-top:3px solid var(--blue);padding-top:16px}
+.steps div::before{content:counter(s);font:800 2.4rem 'Bricolage Grotesque',sans-serif;color:var(--blue)}
+.steps h3{font-size:1.2rem;margin:4px 0 6px;color:#0F172A}
+.steps p{margin:0;color:#475569}
+/* contact */
+form{display:grid;gap:14px;margin-top:30px;max-width:520px}
+label{font-weight:600;font-size:.92rem;display:grid;gap:6px;color:#0F172A}
+input,select,textarea{font:1rem Figtree,sans-serif;padding:12px 14px;border-radius:10px;border:1.5px solid #CBD5E1;background:#fff;color:var(--ink)}
+.ok-msg{display:none;margin-top:20px;background:#F1F5F9;border-left:5px solid var(--blue);padding:16px 20px;border-radius:10px;max-width:520px;color:#0F172A}
+footer{padding:34px 0;background:#FFFFFF;border-top:1px solid #E2E8F0;color:#64748B;font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center}
+@media(max-width:700px){nav a.h{display:none}.dev{margin-left:0}.hero{padding-top:56px}section{padding:60px 0}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="logo" href="#top">essence<i></i></a>
+<nav><a class="h" href="#sobre">A Startup</a><a class="h" href="#demos">Exemplos</a><a class="h" href="#servicos">Serviços</a><a class="h" href="#precos">Preços</a><a class="h" href="#processo">Como trabalhamos</a><a class="btn blue" href="#contato" style="padding:9px 20px;margin-left:24px">Pedir orçamento</a></nav>
+</div></header>
+
+<main id="top">
+<div class="hero"><div class="wrap">
+<h1>Seu negócio merece um site à altura.</h1>
+<p>A Essence cria sites e lojas virtuais profissionais para comércios e empresas: rápidos, bonitos no celular e prontos para vender.</p>
+<div class="row"><a class="btn" href="#demos">Ver exemplos ao vivo</a><a class="btn ghost" href="#contato">Falar com a gente</a></div>
+<div class="stats"><div><b>120+</b><span>sites entregues</span></div><div><b>15 dias</b><span>prazo médio</span></div><div><b>100%</b><span>adaptado ao celular</span></div></div>
+</div></div>
+
+<section id="sobre" style="background:#FFFFFF;padding:60px 0;border-bottom:1px solid #E2E8F0;"><div class="wrap">
+<h2 class="sec-h">Uma startup feita em Brasília para impulsionar negócios.</h2>
+<p class="sub">Nascidos no coração do Distrito Federal, combinamos inovação em tecnologia e design de alto nível para transformar comércios locais e empresas de todo o país em potências digitais[cite: 1].</p>
+</div></section>
+
+<section id="demos" style="padding-top:20px"><div class="wrap">
+<h2 class="sec-h">Teste um site como se fosse seu cliente.</h2>
+<p class="sub">Três lojas fictícias feitas pela Essence com fotos reais. Troque de loja, alterne entre computador e celular e adicione produtos ao carrinho.</p>
+<div class="tabs" role="tablist" id="tabs"></div>
+<div class="stage"><div class="frame" id="frame">
+<div class="bar"><i></i><i></i><i></i><span class="url" id="url"></span></div>
+<div class="s" id="store"></div>
+</div></div>
+<p class="note">Lojas e produtos fictícios, criados apenas para demonstração.</p>
+</div></section>
+
+<section id="servicos" class="light"><div class="wrap">
+<h2 class="sec-h">Tudo o que o seu site precisa para trabalhar por você.</h2>
+<div class="cards">
+<div class="card"><h3>Sites institucionais</h3><p>Apresente sua empresa, serviços e contatos com uma identidade clara e profissional.</p></div>
+<div class="card"><h3>Lojas virtuais</h3><p>Catálogo, carrinho e pagamento integrados para vender 24 horas por dia.</p></div>
+<div class="card"><h3>Páginas de captação</h3><p>Páginas objetivas que transformam visitantes em pedidos de orçamento e mensagens.</p></div>
+<div class="card"><h3>Manutenção e suporte</h3><p>Atualizações, hospedagem e ajuda sempre que você precisar, sem burocracia.</p></div>
+</div></div></section>
+
+<section id="precos" style="background:#FFFFFF;border-top:1px solid #E2E8F0;border-bottom:1px solid #E2E8F0;"><div class="wrap">
+<h2 class="sec-h">Planos e Investimento</h2>
+<p class="sub">Escolha a opção ideal para colocar o seu negócio no digital com total segurança.</p>
+<div class="pricing-grid">
+  <div class="price-card">
+    <h3>Essencial</h3>
+    <div class="price">R$ 250</div>
+    <ul>
+      <li>Site profissional rápido</li>
+      <li>Adaptado para celular</li>
+      <li>Acesso direto ao WhatsApp</li>
+    </ul>
+    <a class="btn ghost" href="#contato" style="text-align:center;">Escolher plano</a>
+  </div>
+  <div class="price-card featured">
+    <h3>Profissional</h3>
+    <div class="price">R$ 350</div>
+    <ul>
+      <li>Loja virtual ou institucional completo</li>
+      <li>Otimizado para conversão</li>
+      <li>Suporte de 6 meses inclusos</li>
+    </ul>
+    <a class="btn blue" href="#contato" style="text-align:center;">Escolher plano</a>
+  </div>
+  <div class="price-card">
+    <h3>Personalizado</h3>
+    <div class="price">Personalizado</div>
+    <ul>
+      <li>Soluções sob medida e exclusivas</li>
+      <li>Design avançado para sua marca</li>
+      <li>Suporte completo de 12 meses</li>
+    </ul>
+    <a class="btn ghost" href="#contato" style="text-align:center;">Falar com consultor</a>
+  </div>
+</div>
+</div></section>
+
+<section id="processo"><div class="wrap">
+<h2 class="sec-h">Do primeiro contato ao site no ar.</h2>
+<div class="steps">
+<div><h3>Conversa</h3><p>Entendemos seu negócio, seu público e o que o site precisa fazer.</p></div>
+<div><h3>Proposta e design</h3><p>Você aprova o visual antes de qualquer linha de código.</p></div>
+<div><h3>Desenvolvimento</h3><p>Construímos o site e você acompanha cada etapa.</p></div>
+<div><h3>Publicação</h3><p>Colocamos no ar, treinamos você e seguimos ao seu lado.</p></div>
+</div></div></section>
+
+<section id="contato" class="light"><div class="wrap">
+<h2 class="sec-h">Conte o que você precisa.</h2>
+<p class="sub">Preencha o formulário para enviar os dados diretamente para o nosso WhatsApp (61 98283-7200).</p>
+<form id="form">
+<label>Seu nome<input required name="n" autocomplete="name"></label>
+<label>E-mail<input required type="email" name="e" autocomplete="email"></label>
+<label>Qual plano você deseja?<select name="t"><option>Plano Essencial (R$ 250 - Acesso ao WhatsApp)</option><option>Plano Profissional (R$ 350 - Suporte de 6 meses)</option><option>Plano Personalizado (Suporte de 12 meses)</option><option>Ainda não sei</option></select></label>
+<label>Mensagem<textarea rows="4" name="m"></textarea></label>
+<button class="btn blue" type="submit">Enviar pedido via WhatsApp</button>
+</form>
+<div class="ok-msg" id="ok" role="status"></div>
+</div></section>
+</main>
+<footer>
+<div class="wrap">
+  <span>© 2026 Essence. Todos os direitos reservados. — Sites com essência, resultados com clareza.</span>
+  <span style="font-style: italic; color: #475569;">"Todos nascem como originais, mas muitos morrem como fotocópias"[cite: 1]</span>
+</div>
+</footer>
+
+<script>
+const stores=[
+{id:'cafe',name:'Grão Dourado',tab:'Cafeteria',url:'graodourado.com.br',a:'#7A4A21',bg:'#FBF3E8',h:'Café fresco, torrado toda semana.',p:'Grãos especiais entregues na sua porta.',items:[
+  ['Espresso 250g',32,'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=300&q=80'],
+  ['Blend Suave 500g',54,'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=300&q=80'],
+  ['Cold Brew 1L',28,'https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=300&q=80'],
+  ['Kit Presente',89,'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=300&q=80']
+]},
+{id:'moda',name:'Linha Urbana',tab:'Moda',url:'linhaurbana.com.br',a:'#1F4E5F',bg:'#EAF3F5',h:'Estilo para o seu dia a dia.',p:'Peças atemporais com frete grátis acima de R$ 200.',items:[
+  ['Camiseta Básica',59,'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=300&q=80'],
+  ['Calça Alfaiataria',149,'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=300&q=80'],
+  ['Jaqueta Leve',219,'https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=300&q=80'],
+  ['Boné Classic',45,'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=300&q=80']
+]},
+{id:'pet',name:'Patas & Cia',tab:'Pet shop',url:'patasecia.com.br',a:'#2E7D4F',bg:'#EAF6EE',h:'Tudo para quem você ama.',p:'Rações, brinquedos e cuidados para cães e gatos.',items:[
+  ['Ração Premium 3kg',98,'https://images.unsplash.com/photo-1589924691995-400dc9ecc119?auto=format&fit=crop&w=300&q=80'],
+  ['Bolinha Mordedor',19,'https://images.unsplash.com/photo-1535930891776-0c2dfb7fda1a?auto=format&fit=crop&w=300&q=80'],
+  ['Cama Macia M',129,'https://images.unsplash.com/photo-1541599540903-216a46ca1dc0?auto=format&fit=crop&w=300&q=80'],
+  ['Shampoo Neutro',34,'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=300&q=80']
+]}];
+const brl=n=>n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+let cur=0,carts={cafe:[],moda:[],pet:[]},open={};
+const tabs=document.getElementById('tabs'),box=document.getElementById('store'),frame=document.getElementById('frame');
+function drawTabs(){
+tabs.innerHTML=stores.map((s,i)=>`<button class="tab" role="tab" aria-selected="${i==cur}" data-i="${i}">${s.tab}</button>`).join('')+
+`<span class="dev"><button data-d="d" aria-pressed="${!frame.classList.contains('mobile')}">Computador</button><button data-d="m" aria-pressed="${frame.classList.contains('mobile')}">Celular</button></span>`}
+function draw(){
+const s=stores[cur],c=carts[s.id],tot=c.reduce((a,b)=>a+b[1],0);
+document.getElementById('url').textContent='https://'+s.url;
+box.style.setProperty('--a',s.a);box.style.setProperty('--bg',s.bg);
+box.innerHTML=`<div class="s-top"><b>${s.name}</b><button class="cartbtn" data-c>Carrinho (${c.length})</button></div>
+<div class="s-hero"><h3>${s.h}</h3><p>${s.p}</p></div>
+<div class="grid">${s.items.map((it,i)=>`<div class="p"><div class="img" style="background-image:url('${it[2]}')"></div><div class="t"><h4>${it[0]}</h4><small>${brl(it[1])}</small><button class="add" data-add="${i}">Adicionar</button></div></div>`).join('')}</div>
+<div class="cart ${open[s.id]?'on':''}">${c.length?`<ul>${c.map(x=>`<li><span>${x[0]}</span><span>${brl(x[1])}</span></li>`).join('')}</ul><div class="tot"><span>Total</span><span>${brl(tot)}</span></div><button data-fin>Finalizar pedido</button>`:'Seu carrinho está vazio. Adicione um produto para começar.'}</div>`}
+tabs.onclick=e=>{const b=e.target.closest('button');if(!b)return;
+if(b.dataset.i){cur=+b.dataset.i}
+if(b.dataset.d){frame.classList.toggle('mobile',b.dataset.d=='m')}
+drawTabs();draw()};
+box.onclick=e=>{const s=stores[cur],b=e.target.closest('button');if(!b)return;
+if('c' in b.dataset){open[s.id]=!open[s.id];draw()}
+else if(b.dataset.add!==undefined){carts[s.id].push(s.items[+b.dataset.add]);open[s.id]=true;draw()}
+else if('fin' in b.dataset){carts[s.id]=[];draw();const k=box.querySelector('.cart');k.classList.add('on');k.textContent='Pedido enviado! Isto é só uma demonstração, nada foi cobrado.'}};
+drawTabs();draw();
+
+document.getElementById('form').onsubmit=e=>{
+  e.preventDefault();
+  const f=e.target;
+  const nome=f.n.value;
+  const email=f.e.value;
+  const plano=f.t.value;
+  const msg=f.m.value;
+
+  const texto=`Olá, meu nome é *${nome}* (${email}).\nTenho interesse no *${plano}*.\nMensagem: ${msg}`;
+  const fone="5561982837200";
+  const urlWp=`https://api.whatsapp.com/send?phone=${fone}&text=${encodeURIComponent(texto)}`;
+
+  const o=document.getElementById('ok');
+  o.textContent=`Obrigado, ${nome}! A redirecionar para o nosso WhatsApp...`;
+  o.style.display='block';
+  
+  setTimeout(()=>{
+    window.open(urlWp, '_blank');
+  }, 1000);
+};
+</script>
+</body>
+</html>
